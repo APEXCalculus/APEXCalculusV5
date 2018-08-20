@@ -71,15 +71,15 @@
 \noindent {\bf Section 6.3} \vskip \baselineskip 
 \printanswers {exercises/06_03_exercises.tex}
 \noindent {\bf Section 6.4} \vskip \baselineskip 
-\printanswers {exercises/06_04_exercises.tex}
-\noindent {\bf Section 6.5} \vskip \baselineskip 
-\printanswers {exercises/06_05_exercises.tex}
-\noindent {\bf Section 6.6} \vskip \baselineskip 
-\printanswers {exercises/06_06_exercises.tex}
-\noindent {\bf Section 6.7} \vskip \baselineskip 
-\printanswers {exercises/06_07_exercises.tex}
-\noindent {\bf Section 6.8} \vskip \baselineskip 
 \printanswers {exercises/06_08_exercises.tex}
+\noindent {\bf Section 6.5} \vskip \baselineskip 
+\printanswers {exercises/06_04_exercises.tex}
+\noindent {\bf Section 6.6} \vskip \baselineskip 
+\printanswers {exercises/06_05_exercises.tex}
+\noindent {\bf Section 6.7} \vskip \baselineskip 
+\printanswers {exercises/06_06_exercises.tex}
+\noindent {\bf Section 6.8} \vskip \baselineskip 
+\printanswers {exercises/06_07_exercises.tex}
 \noindent {\Large \bf Chapter 7} \vskip \baselineskip 
 \noindent {\bf Section 7.1} \vskip \baselineskip 
 
