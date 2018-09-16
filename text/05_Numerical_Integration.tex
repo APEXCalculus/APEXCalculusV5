@@ -392,27 +392,27 @@ At the beginning of this section we mentioned two main situations where numerica
 One of the authors drove his daughter home from school while she recorded their speed every 30 seconds. The data is given in Figure \ref{fig:num8}. Approximate the distance they traveled.}
 {Recall that by integrating a speed function we get distance traveled. We have information about $v(t)$; we will use Simpson's Rule to approximate $\ds \int_a^b v(t)\ dt.$ 
 
-The most difficult aspect of this problem is converting the given data into the form we need it to be in. The speed is measured in miles per hour, whereas the time is measured in 30 second increments. 
+The most difficult aspect of this problem is converting the given data into the form we need it to be in. The speed is measured in miles per hour, whereas the time is measured in minutes. 
 
 \mtable{.4}{Speed data collected at 30 second intervals for Example \ref{ex_num8}.}{fig:num8}{%
 \begin{tabular}{cc}
-Time & \parbox{30pt}{\centering Speed \\ (mph)}\rule[-9pt]{0pt}{5pt} \\ \hline
+\parbox{30pt}{\centering Time \\ (min)} & \parbox{30pt}{\centering Speed \\ (mph)}\rule[-9pt]{0pt}{5pt} \\ \hline
 0 & 0 \\
- 1 & 25 \\ 2 & 22 \\
- 3 & 19 \\ 4 & 39 \\
- 5 & 0 \\ 6 & 43\\
- 7 & 59 \\ 8 & 54 \\
- 9 & 51 \\ 10 & 43 \\
- 11 & 35 \\ 12 & 40 \\
- 13 & 43 \\ 14 & 30 \\
- 15 & 0 \\ 16 & 0 \\
- 17 & 28 \\ 18 & 40 \\
- 19 & 42 \\ 20 & 40 \\
- 21 & 39 \\ 22 & 40 \\
- 23 & 23 \\ 24 & 0 \\ 
+ 0.5 & 25 \\ 1 & 22 \\
+ 1.5 & 19 \\ 2 & 39 \\
+ 2.5 & 0 \\ 3 & 43\\
+ 3.5 & 59 \\ 4 & 54 \\
+ 4.5 & 51 \\ 5 & 43 \\
+ 5.5 & 35 \\ 6 & 40 \\
+ 6.5 & 43 \\ 7 & 30 \\
+ 7.5 & 0 \\ 8 & 0 \\
+ 8.5 & 28 \\ 9 & 40 \\
+ 9.5 & 42 \\ 10 & 40 \\
+ 10.5 & 39 \\ 11 & 40 \\
+ 11.5 & 23 \\ 12 & 0 \\ 
 \end{tabular}
 }
-We need to compute $\dx = (b-a)/n$. Clearly, $n=24$. What are $a$ and $b$? Since we start at time $t=0$, we have that $a=0$. The final recorded time came after 24 periods of 30 seconds, which is 12 minutes or 1/5 of an hour. Thus we have
+We need to compute $\dx = (b-a)/n$. With 25 data points collected, there are $n=24$ subintervals. What are $a$ and $b$? Since we start at time $t=0$, we have $a=0$. The final recorded time was $t=12$ minutes, which is 1/5 of an hour. Thus we have
 $$\dx = \frac{b-a}{n} = \frac{1/5-0}{24} = \frac1{120}; \quad \frac{\dx}{3} = \frac{1}{360}.$$
 
 Thus the distance traveled is approximately:
