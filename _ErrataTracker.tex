@@ -186,6 +186,9 @@ pA.46 In Algebra / Factoring by Grouping, $(cs+d)$ should be $(cx+d)$.
 pA.47 In Algebra / Taylor Series: should end with $+ . . .$ and pA.47 In Algebra / Maclaurin Series: same
 % 9/16/18 both fixed, plus other uses of ``...'' instead of ``\cdots'' on same page
 
+%%%%
+%%%%  Revisit these
+%%%%  
 You mentioned that all exercise sets now start with an odd and end with an even.  There are a few sets with an odd number of problems:
 01_04_exset_03
 02_06_exset_02
@@ -204,17 +207,25 @@ also:
 2.3#26 doesn’t seem to belong to that instruction set, leaving the set with an odd number of problems
 7.1#19,20: These don’t really belong to their exercise set
 10.2#21 throws off the parity
+%%%%
+%%%%  Revist above
+%%%%
 
 Grammar:
 p423 8.2 just before Thm 8.2.2: $p$ is not in math mode
 p496 8.8#12 solution: an open quote is never closed
 p793 Def&Thm 13.4.2: (x_2,y_2) should have a comma after it
+% 9/17/18 All three of above fixed
+
 
 Misspellings.  The good news is I figured out how to spell check in my editor (and from the command line:
 cat text/*tex | aspell list -t --ignore=3 --ignore-case | sort | uniq > misspell.txt
 The bad news is I figured out how to spell check.
 
 Multiple places: The units Newtons and Joules should be capitalized
+% 9/17/18 Pretty sure that no, they are not. Look at Wikipedia entry on Newton.
+% Removed a few cases at first of capitalized Newton, used \emph{newton} and
+% \emph{joule} for their first use.
 
 p292 6.2#4: original is misspelled.
 p557 9.5#34 solution: Pythagorean is misspelled
