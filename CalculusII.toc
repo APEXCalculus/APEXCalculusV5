@@ -4,6 +4,6 @@
 \contentsline {chapter}{Preface}{v}{section*.2}
 \contentsline {chapter}{\numberline {5}Sequences and Series}{1}{chapter.5}
 \thispagestyle {empty}
-\contentsline {section}{\numberline {5.1}Sequences}{1}{section.5.1}
+\contentsline {section}{\numberline {5.1}Parametric Equations}{1}{section.5.1}
 \contentsline {chapter}{\numberline {A}Solutions To Selected Problems}{A.1}{appendix.A}
-\contentsline {chapter}{Index}{A.3}{section*.9}
+\contentsline {chapter}{Index}{A.3}{section*.12}
