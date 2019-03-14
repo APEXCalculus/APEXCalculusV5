@@ -1,0 +1,18 @@
+
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="chapter_deriv_apps">
+  <title>Applications of the Derivative</title>
+  <introduction>
+    <p>
+      In <xref ref="chapter_graphbehavior">Chapter</xref>,
+      we learned how the first and second derivatives of a function influence its graph.
+      In this chapter we explore other applications of the derivative.
+    </p>
+  </introduction>
+
+  <xi:include  href="sec_newton.ptx" />
+  <xi:include  href="sec_related_rates.ptx" />
+  <xi:include  href="sec_optimization.ptx" />
+  <xi:include  href="sec_differentials.ptx" />
+</chapter>
+

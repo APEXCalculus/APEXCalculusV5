@@ -1,0 +1,1233 @@
+
+
+<section xml:id="sec_differentials">
+  <title>Differentials</title>
+  <introduction>
+    <p>
+      In <xref ref="sec_interp_deriv">Section</xref>
+      we explored the meaning and use of the derivative.
+      This section starts by revisiting some of those ideas.
+    </p>
+
+    <p>
+      Recall that the derivative of a function <m>f</m> can be used to find the slopes of lines tangent to the graph of <m>f</m>.
+      At <m>x=c</m>,
+      the tangent line to the graph of <m>f</m> has equation
+      <me>
+        y = \fp(c)(x-c)+f(c)
+      </me>.
+    </p>
+
+    <p>
+      The tangent line can be used to find good approximations of <m>f(x)</m> for values of <m>x</m> near <m>c</m>.
+    </p>
+
+    <p>
+      For instance, we can approximate
+      <m>\sin 1.1</m> using the tangent line to the graph of
+      <m>f(x)=\sin x</m> at <m>x=\pi/3 \approx 1.05</m>.
+      Recall that <m>\sin (\pi/3) = \sqrt{3}/2 \approx 0.866</m>,
+      and <m>\cos (\pi/3) = 1/2</m>.
+      Thus the tangent line to <m>f(x) = \sin x</m> at <m>x=\pi/3</m> is:
+      <me>
+        \ell(x) = \frac12(x-\pi/3)+0.866
+      </me>.
+    </p>
+<!--
+<caption>Graphing <m>f(x) = \sin x</m> and its tangent line at <m>x=\pi/3</m> in order to estimate <m>\sin 1.1</m>.</caption>
+-->
+    <sidebyside>
+      <img src="figures/figdiffal1a"/> 
+      (a)
+      <img src="figures/figdiffal1"/> 
+      (b)
+    </sidebyside>
+
+    <p>
+      In <xref ref="fig_diffal1">Figure</xref>(a),
+      we see a graph of <m>f(x) = \sin x</m> graphed along with its tangent line at <m>x=\pi/3</m>.
+      The small rectangle shows the region that is displayed in <xref ref="fig_diffal1">Figure</xref>(b).
+      In this figure, we see how we are approximating
+      <m>\sin 1.1</m> with the tangent line, evaluated at <m>1.1</m>.
+      Together, the two figures show how close these values are.
+    </p>
+
+    <p>
+      Using this line to approximate <m>\sin 1.1</m>, we have:
+      <md>
+        <mrow>\ell(1.1) \amp = \frac12(1.1-\pi/3)+0.866</mrow>
+        <mrow>\amp = \frac12(0.053)+0.866 = 0.8925</mrow>
+      </md>.
+    </p>
+
+    <p>
+      (We leave it to the reader to see how good of an approximation this is.)
+    </p>
+
+    <p>
+      We now generalize this concept.
+      Given <m>f(x)</m> and an <m>x</m><ndash />value <m>c</m>,
+      the tangent line is <m>\ell(x) = \fp(c)(x-c)+f(c)</m>.
+      Clearly, <m>f(c) = \ell(c)</m>.
+      Let <m>\dx</m> be a small number,
+      representing a small change in <m>x</m> value.
+      We assert that:
+      <me>
+        f(c+\dx) \approx \ell(c+\dx)
+      </me>,
+      since the tangent line to a function approximates well the values of that function near <m>x=c</m>.
+    </p>
+
+    <p>
+      As the <m>x</m>-value changes from <m>c</m> to <m>c+\dx</m>,
+      the <m>y</m>-value of <m>f</m> changes from <m>f(c)</m> to <m>f(c+\dx)</m>.
+      We call this change of <m>y</m> value \Delta y.
+      That is:
+      <me>
+        \dy = f(c+\dx)-f(c)
+      </me>.
+    </p>
+
+    <p>
+      Replacing <m>f(c+\dx)</m> with its tangent line approximation, we have
+      <md>
+        <mrow>\dy \amp \approx \ell(c+\dx) - f(c)</mrow>
+        <mrow>\amp = \fp(c)\big((c+\dx)-c\big)+f(c) - f(c)</mrow>
+        <mrow>\amp =\fp(c)\dx</mrow>
+      </md>
+    </p>
+
+    <p>
+      This final equation is important;
+      it becomes the basis of the upcoming Definition and Key Idea.
+      In short, it says that when the <m>x</m>-value changes from <m>c</m> to <m>c+\Delta x</m>,
+      the <m>y</m> value of a function <m>f</m> changes by about <m>\fp(c)\Delta x</m>.
+    </p>
+
+    <p>
+      We introduce two new variables,
+      <m>dx</m> and <m>dy</m> in the context of a formal definition.
+    </p>
+
+    <definition xml:id="def_differential">
+      <title>Differentials of $x$ and $y$.</title>
+      <statement>
+        <p>
+          Let <m>y=f(x)</m> be differentiable.
+          The <term>differential of <m>x</m></term>,
+          denoted <m>dx</m>, is any nonzero real number
+          (usually taken to be a small number).
+              <idx><h>differential</h></idx>
+              <idx><h>derivative</h><h>differential</h></idx>
+          The <term>differential of <m>y</m></term>, denoted <m>dy</m>, is
+          <me>
+            dy = \fp(x)dx
+          </me>.
+        </p>
+      </statement>
+    </definition>
+
+    <p>
+      We can solve for <m>\fp(x)</m> in the above equation:
+      <m>\fp(x) = dy/dx</m>.
+      This states that the derivative of <m>f</m> with respect to <m>x</m> is the differential of <m>y</m> divided by the differential of <m>x</m>;
+      this is <em>not</em> the alternate notation for the derivative,
+      <m>\frac{dy}{dx}</m>.
+      This latter notation was chosen because of the fraction<ndash />like qualities of the derivative,
+      but again,
+      it is one symbol and not a fraction.
+    </p>
+
+    <p>
+      It is helpful to organize our new concepts and notations in one place.
+    </p>
+
+    <insight xml:id="idea_differential">
+      <title>Differential Notation</title>
+      <p>
+        Let <m>y = f(x)</m> be a differentiable function.
+            <idx><h>differential</h><h>notation</h></idx>
+        <ol>
+          <li>
+            <p>
+              Let <m>\dx</m> represent a small,
+              nonzero change in <m>x</m> value.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Let <m>dx</m> represent a small,
+              nonzero change in <m>x</m> value (i.e., <m>\dx = dx</m>).
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Let <m>\dy</m> be the change in <m>y</m> value as <m>x</m> changes by <m>\dx</m>; hence
+              <me>
+                \dy = f(x+\dx)-f(x)
+              </me>.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Let <m>dy = \fp(x)dx</m> which,
+              by Equation <xref ref="eq_differential" />,
+              is an <em>approximation</em> of the change in <m>y</m> value as <m>x</m> changes by <m>\dx</m>;
+              <m>dy \approx \dy</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </insight>
+
+    <p>
+      What is the value of differentials?
+      Like many mathematical concepts,
+      differentials provide both practical and theoretical benefits.
+      We explore both here.
+    </p>
+
+    <example xml:id="ex_diffal1">
+      <title>Finding and using differentials</title>
+      <statement>
+        <p>
+          Consider <m>f(x) = x^2</m>.
+          Knowing <m>f(3) = 9</m>, approximate <m>f(3.1)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The <m>x</m> value is changing from <m>x=3</m> to <m>x=3.1</m>;
+          therefore, we see that <m>dx=0.1</m>.
+          If we know how much the <m>y</m> value changes from <m>f(3)</m> to <m>f(3.1)</m> (i.e., if we know <m>\dy</m>),
+          we will know exactly what <m>f(3.1)</m> is (since we already know <m>f(3)</m>).
+          We can approximate \Delta y<nbsp />with <m>dy</m>.
+          <md>
+            <mrow>\dy \amp \approx dy</mrow>
+            <mrow>\amp = \fp(3)dx</mrow>
+            <mrow>\amp = 2\cdot 3\cdot 0.1 = 0.6</mrow>
+          </md>.
+        </p>
+
+        <p>
+          We expect the <m>y</m> value to change by about <m>0.6</m>,
+          so we approximate <m>f(3.1) \approx 9.6</m>.
+        </p>
+
+        <p>
+          We leave it to the reader to verify this,
+          but the preceding discussion links the differential to the tangent line of <m>f(x)</m> at <m>x=3</m>.
+          One can verify that the tangent line,
+          evaluated at <m>x=3.1</m>, also gives <m>y=9.6</m>.
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      Of course, it is easy to compute the actual answer (by hand or with a calculator):
+      <m>3.1^2 = 9.61</m>. (Before we get too cynical and say
+      <q>Then why bother?</q>,
+      note our approximation is <em>really</em> good!)
+    </p>
+
+    <p>
+      So why bother?
+    </p>
+
+    <p>
+      In <q>most</q> real life situations,
+      we do not know the function that describes a particular behavior.
+      Instead, we can only take measurements of how things change <mdash /> measurements of the derivative.
+    </p>
+
+    <p>
+      Imagine water flowing down a winding channel.
+      It is easy to measure the speed and direction (i.e., the
+      <em>velocity</em>) of water at any location.
+      It is very hard to create a function that describes the overall flow,
+      hence it is hard to predict where a floating object placed at the beginning of the channel will end up.
+      However, we can <em>approximate</em>
+      the path of an object using differentials.
+      Over small intervals,
+      the path taken by a floating object is essentially linear.
+      Differentials allow us to approximate the true path by piecing together lots of short,
+      linear paths.
+      This technique is called Euler's Method,
+      studied in introductory Differential Equations courses.
+    </p>
+
+    <p>
+      We use differentials once more to approximate the value of a function.
+      Even though calculators are very accessible,
+      it is neat to see how these techniques can sometimes be used to easily compute something that looks rather hard.
+    </p>
+
+    <example xml:id="ex_diffal2">
+      <title>Using differentials to approximate a function value</title>
+      <statement>
+        <p>
+          Approximate <m>\sqrt{4.5}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We expect <m>\sqrt{4.5} \approx 2</m>, yet we can do better.
+          Let <m>f(x) = \sqrt{x}</m>, and let <m>c=4</m>.
+          Thus <m>f(4) = 2</m>.
+          We can compute <m>\fp(x) = 1/(2\sqrt{x})</m>, so <m>\fp(4) = 1/4</m>.
+        </p>
+
+        <p>
+          We approximate the difference between <m>f(4.5)</m> and <m>f(4)</m> using differentials,
+          with <m>dx = 0.5</m>:
+          <me>
+            f(4.5)-f(4) = \dy \approx dy = \fp(4)\cdot dx = 1/4 \cdot 1/2 = 1/8 = 0.125
+          </me>.
+        </p>
+
+        <p>
+          The approximate change in <m>f</m> from <m>x=4</m> to <m>x=4.5</m> is <m>0.125</m>,
+          so we approximate <m>\sqrt{4.5} \approx 2.125</m>.
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      Differentials are important when we discuss <em>integration</em>.
+      When we study that topic, we will use notation such as
+      <me>
+        \int f(x)\ dx
+      </me>
+      quite often.
+      While we don't discuss here what all of that notation means,
+      note the existence of the differential <m>dx</m>.
+      Proper handling of <em>integrals</em>
+      comes with proper handling of differentials.
+    </p>
+
+    <p>
+      In light of that, we practice finding differentials in general.
+    </p>
+
+    <example xml:id="ex_diffal3">
+      <title>Finding differentials</title>
+      <statement>
+        <p>
+          In each of the following, find the differential <m>dy</m>.
+        </p>
+
+        <p>
+          1. <m>y = \sin x</m> {2}. <m>y = e^x(x^2+2)</m> 3.
+          <m>y = \sqrt{x^2+3x-1}</m>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <ol>
+            <li>
+              <p>
+                <m>y = \sin x</m>:    As <m>f(x) = \sin x</m>, <m>\fp(x) = \cos x</m>.
+                Thus
+                <me>
+                  dy = \cos (x)dx
+                </me>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>y = e^x(x^2+2)</m>:  Let <m>f(x) = e^x(x^2+2)</m>.
+                We need <m>\fp(x)</m>, requiring the Product Rule. 
+
+                We have <m>\fp(x) = e^x(x^2+2) + 2xe^x</m>, so
+                <me>
+                  dy = \big(e^x(x^2+2) + 2xe^x\big)dx
+                </me>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>y = \sqrt{x^2+3x-1}</m>:   Let <m>f(x) = \sqrt{x^2+3x-1}</m>;
+                we need <m>\fp(x)</m>, requiring the Chain Rule.
+
+                We have <m>\ds \fp(x) = \frac{1}{2}(x^2+3x-1)^{-\frac12}(2x+3) = \frac{2x+3}{2\sqrt{x^2+3x-1}}</m>.
+                Thus
+                <me>
+                  dy = \frac{(2x+3)dx}{2\sqrt{x^2+3x-1}}
+                </me>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      Finding the differential <m>dy</m> of <m>y=f(x)</m> is really no harder than finding the derivative of <m>f</m>;
+      we just <em>multiply</em> <m>\fp(x)</m> by <m>dx</m>.
+      It is important to remember that we are not simply adding the symbol
+      <q><m>dx</m></q> at the end.
+    </p>
+
+    <p>
+      We have seen a practical use of differentials as they offer a good method of making certain approximations.
+      Another use is <em>error propagation.</em>
+      Suppose a length is measured to be <m>x</m>,
+      although the actual value is <m>x+\dx</m>
+      (where \Delta x<nbsp />is the error, which we hope is small).
+      This measurement of <m>x</m> may be used to compute some other value;
+      we can think of this latter value as <m>f(x)</m> for some function <m>f</m>.
+      As the true length is <m>x+\dx</m>,
+      one really should have computed <m>f(x+\dx)</m>.
+      The difference between <m>f(x)</m> and
+      <m>f(x+\dx)</m> is the propagated error.
+    </p>
+
+    <p>
+      How close are <m>f(x)</m> and <m>f(x+\dx)</m>?
+      This is a difference in <q>y</q> values:
+      <me>
+        f(x+\dx)-f(x) = \dy \approx dy
+      </me>.
+    </p>
+
+    <p>
+      We can approximate the propagated error using differentials.
+    </p>
+
+    <example xml:id="ex_diffal4">
+      <title>Using differentials to approximate propagated error</title>
+      <statement>
+        <p>
+          A steel ball bearing is to be manufactured with a diameter of 2cm.
+          The manufacturing process has a tolerance of <m>\pm 0.1</m>mm in the diameter.
+          Given that the density of steel is about 7.85g/cm<m>^3</m>,
+          estimate the propagated error in the mass of the ball bearing.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The mass of a ball bearing is found using the equation
+          <q>mass = volume <times /> density.</q>
+          In this situation the mass function is a product of the radius of the ball bearing,
+          hence it is <m>m = 7.85\frac43\pi r^3</m>.
+          The differential of the mass is
+          <me>
+            dm = 31.4\pi r^2 dr
+          </me>.
+        </p>
+
+        <p>
+          The radius is to be 1cm;
+          the manufacturing tolerance in the radius is
+          <m>\pm 0.05</m>mm, or <m>\pm 0.005</m>cm.
+          The propagated error is approximately:
+          <md>
+            <mrow>\Delta m \amp  \approx dm</mrow>
+            <mrow>\amp = 31.4\pi (1)^2 (\pm 0.005)</mrow>
+            <mrow>\amp = \pm 0.493\text{g}</mrow>
+          </md>
+        </p>
+
+        <p>
+          Is this error significant?
+          It certainly depends on the application,
+          but we can get an idea by computing the
+          <em>relative error</em>.
+          The ratio between amount of error to the total mass is
+          <md>
+            <mrow>\frac{dm}{m} \amp = \pm \frac{0.493}{7.85\frac43\pi}</mrow>
+            <mrow>\amp =\pm \frac{0.493}{32.88}</mrow>
+            <mrow>\amp =\pm 0.015</mrow>
+          </md>,
+          or <m>\pm 1.5</m><percent />.
+        </p>
+
+        <p>
+          We leave it to the reader to confirm this,
+          but if the diameter of the ball was supposed to be 10cm,
+          the same manufacturing tolerance would give a propagated error in mass of <m>\pm12.33</m>g,
+          which corresponds to a <em>percent error</em>
+          of <m>\pm0.188</m><percent />.
+          While the amount of error is much greater (<m>12.33 > 0.493</m>),
+          the percent error is much lower.
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      We first learned of the derivative in the context of instantaneous rates of change and slopes of tangent lines.
+      We furthered our understanding of the power of the derivative by studying how it relates to the graph of a function
+      (leading to ideas of increasing/decreasing and concavity).
+      This chapter has put the derivative to yet more uses:
+
+      <ul>
+        <li>
+          <p>
+            Equation solving (Newton's Method),
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Related Rates (furthering our use of the derivative to find instantaneous rates of change),
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Optimization
+            (applied extreme values),
+            and
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Differentials
+            (useful for various approximations and for something called integration).
+          </p>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      In the next chapters, we will consider the <q>reverse</q>
+      problem to computing the derivative:
+      given a function <m>f</m>,
+      can we find a function whose derivative is <m>f</m>?
+      Being able to do so opens up an incredible world of mathematics and applications.
+    </p>
+  </introduction>
+
+  <subsection>
+    <title>Terms and Concepts</title>
+    <exercise>
+      <statement>
+        <p>
+          T/F: Given a differentiable function <m>y=f(x)</m>,
+          we are generally free to choose a value for <m>dx</m>,
+          which then determines the value of <m>dy</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          T
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          T/F: The symbols <q><m>dx</m></q> and <q>\Delta x</q>
+          represent the same concept.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          T
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          T/F: The symbols <q><m>dy</m></q> and <q>\Delta y</q>
+          represent the same concept.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          F
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          T/F: Differentials are important in the study of integration.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          T
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          How are differentials and tangent lines related?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Answers will vary.
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          T/F: In real life,
+          differentials are used to approximate function values when the function itself is not known.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          T
+        </p>
+      </answer>
+    </exercise>
+  </subsection>
+
+  <subsection>
+    <title>Problems</title>
+    <p>
+      In the following exercises,
+      use differentials to approximate the given value by hand.
+    </p>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>2.05^2</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Use <m>y = x^2</m>;
+          <m>dy = 2x\cdot dx</m> with <m>x=2</m> and <m>dx = 0.05</m>.
+          Thus <m>dy = .2</m>; knowing <m>2^2=4</m>,
+          we have <m>2.05^2 \approx 4.2</m>.
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>5.93^2</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Use <m>y = x^2</m>;
+          <m>dy = 2x\cdot dx</m> with <m>x=6</m> and <m>dx = -0.07</m>.
+          Thus <m>dy = -0.84</m>; knowing <m>6^2=36</m>,
+          we have <m>5.93^2 \approx 35.16</m>.
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>5.1^3</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Use <m>y = x^3</m>;
+          <m>dy = 3x^2\cdot dx</m> with <m>x=5</m> and <m>dx = 0.1</m>.
+          Thus <m>dy = 7.5</m>; knowing <m>5^3=125</m>,
+          we have <m>5.1^3 \approx 132.5</m>.
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>6.8^3</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Use <m>y = x^3</m>;
+          <m>dy = 3x^2\cdot dx</m> with <m>x=7</m> and <m>dx = -0.2</m>.
+          Thus <m>dy = -29.4</m>; knowing <m>7^3=343</m>,
+          we have <m>6.8^3 \approx 313.6</m>.
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>\sqrt{16.5}</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Use <m>y = \sqrt{x}</m>;
+          <m>dy = 1/(2\sqrt{x})\cdot dx</m> with <m>x=16</m> and <m>dx = 0.5</m>.
+          Thus <m>dy = .0625</m>; knowing <m>\sqrt{16}=4</m>,
+          we have <m>\sqrt{16.5} \approx 4.0625</m>.
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>\sqrt{24}</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Use <m>y = \sqrt{x}</m>;
+          <m>dy = 1/(2\sqrt{x})\cdot dx</m> with <m>x=25</m> and <m>dx = -1</m>.
+          Thus <m>dy = -0.1</m>; knowing <m>\sqrt{25}=5</m>,
+          we have <m>\sqrt{24} \approx 4.9</m>.
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>\sqrt[3]{63}</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Use <m>y = \sqrt[3]{x}</m>;
+          <m>dy = 1/(3\sqrt[3]{x^2})\cdot dx</m> with <m>x=64</m> and <m>dx = -1</m>.
+          Thus <m>dy = -1/48\approx 0.0208</m>;
+          we could use <m>-1/48\approx -1/50=-0.02</m>;
+          knowing <m>\sqrt[3]{64}=4</m>,
+          we have <m>\sqrt[3]{63} \approx 3.98</m>.
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>\sqrt[3]{8.5}</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Use <m>y = \sqrt[3]{x}</m>;
+          <m>dy = 1/(3\sqrt[3]{x^2})\cdot dx</m> with <m>x=8</m> and <m>dx = 0.5</m>.
+          Thus <m>dy = 1/24\approx 1/25=0.04</m>;
+          knowing <m>\sqrt[3]{8}=2</m>,
+          we have <m>\sqrt[3]{8.5} \approx 2.04</m>.
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>\sin 3</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Use <m>y = \sin x</m>;
+          <m>dy = \cos x\cdot dx</m> with <m>x=\pi</m> and <m>dx \approx -0.14</m>.
+          Thus <m>dy = 0.14</m>; knowing <m>\sin \pi = 0</m>,
+          we have <m>\sin 3 \approx 0.14</m>.
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>e^{0.1}</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Use <m>y = e^x</m>;
+          <m>dy = e^x\cdot dx</m> with <m>x=0</m> and <m>dx =0.1</m>.
+          Thus <m>dy = 0.1</m>; knowing <m>e^0=1</m>,
+          we have <m>e^{0.1} \approx 1.1</m>.
+        </p>
+      </answer>
+    </exercise>
+
+    <p>
+      In the following exercises, compute the differential <m>dy</m>.
+    </p>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>y=x^2+3x-5</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>dy = (2x+3)dx</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>y=x^7-x^5</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>dy = (7x^6-5x^4)dx</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>\ds y=\frac{1}{4x^2}</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>dy = \frac{-2}{4x^3}dx</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>\ds y=(2x+\sin x)^2</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>dy = 2(2x+\sin x)(2+\cos x)dx</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>\ds y=x^2e^{3x}</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>dy = \big(2xe^{3x}+3x^2e^{3x}\big)dx</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>\ds y=\frac{4}{x^4}</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>dy = \frac{-16}{x^5}dx</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>\ds y=\frac{2x}{\tan x + 1}</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>dy = \frac{2(\tan x+ 1)-2x\sec^2x}{(\tan x+1)^2}dx</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>\ds y=\ln (5x)</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>dy = \frac{1}{x}dx</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>\ds y=e^x\sin x</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>dy = (e^x\sin x+ e^x\cos x)dx</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>\ds y=\cos (\sin x)</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>dy = (-\sin(\sin x)\cos x)dx</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>\ds y=\frac{x+1}{x+2}</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>dy = \frac{1}{(x+2)^2}dx</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>\ds y=3^x\ln x</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>dy = ((\ln 3)3^x\ln x + \frac{3^x}{x})dx</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>\ds y=x\ln x-x</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>dy = (\ln x)dx</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>y = \ln\big(\sec x\big)</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>dy = \big(\tan x\big)dx</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <p>
+      The following exercises use differentials to approximate propagated error.
+    </p>
+
+    <exercise>
+      <statement>
+        <p>
+          A set of plastic spheres are to be made with a diameter of 1cm.
+          If the manufacturing process is accurate to 1mm,
+          what is the propagated error in volume of the spheres?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>dV = \pm 0.157</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          The distance, in feet,
+          a stone drops in <m>t</m> seconds is given by <m>d(t) = 16t^2</m>.
+          The depth of a hole is to be approximated by dropping a rock and listening for it to hit the bottom.
+          What is the propagated error if the time measurement is accurate to
+          <m>2/10^{\text{ ths } }</m> of a second and the measured time is:
+
+          <ol>
+            <li>
+              <p>
+                2 seconds?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                5 seconds?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      <answer>
+        <ol>
+          <li>
+            <p>
+              <m>\pm</m>12.8 feet
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>\pm</m>32 feet
+            </p>
+          </li>
+        </ol>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          What is the propagated error in the measurement of the cross sectional area of a circular log if the diameter is measured at <m>15''</m>,
+          accurate to <m>1/4''</m>?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>\pm15\pi/8 \approx \pm5.89</m>in<m>^2</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          A wall is to be painted that is <m>8'</m> high and is measured to be <m>10',\ 7''</m> long.
+          Find the propagated error in the measurement of the wall's surface area if the measurement is accurate to <m>1/2''</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>\pm</m>48in<m>^2</m>, or 1/3ft<m>^2</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <p>
+      The following exercises explore some issues related to surveying in which distances are approximated using other measured distances and measured angles.
+      <em>(Hint: Convert all angles to radians before computing.)</em>
+    </p>
+
+    <exercise xml:id="exer_04_04_ex_35">
+      <statement>
+        <p>
+          The length <m>l</m> of a long wall is to be approximated.
+          The angle <m>\theta</m>, as shown in the diagram
+          (not to scale),
+          is measured to be <m>85.2^\circ</m>,
+          accurate to <m>1^\circ</m>.
+          Assume that the triangle formed is a right triangle.
+        </p>
+
+        <sidebyside>
+
+          <image>
+
+<latex-image>
+          <![CDATA[\begin{tikzpicture}\draw [ultra thick] (1,-1) -- node [pos=.5,right] { \(l=\)?}(1,1);
+\draw [dashed] (1,1) -- (-1,-1) node [xshift=10pt,yshift=5pt] { \(\theta\)} -- node [pos=.5,below] { \(25'\)} (1,-1);\end{tikzpicture}]]>
+</latex-image>
+          </image>
+
+        </sidebyside>
+
+        <ol>
+          <li>
+            <p>
+              What is the measured length <m>l</m> of the wall?
+            </p>
+          </li>
+
+          <li>
+            <p>
+              What is the propagated error?
+            </p>
+          </li>
+
+          <li>
+            <p>
+              What is the percent error?
+            </p>
+          </li>
+        </ol>
+      </statement>
+      <answer>
+        <ol>
+          <li>
+            <p>
+              297.8 feet
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>\pm 62.3</m> ft
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>\pm 20.9</m><percent />
+            </p>
+          </li>
+        </ol>
+      </answer>
+    </exercise>
+
+    <exercise xml:id="exer_04_04_ex_36">
+      <statement>
+        <p>
+          Answer the questions of <xref ref="exer_04_04_ex_35">Exercise</xref>,
+          but with a measured angle of <m>71.5^\circ</m>,
+          accurate to <m>1^\circ</m>, measured from a point <m>100'</m> from the wall.
+        </p>
+      </statement>
+      <answer>
+        <ol>
+          <li>
+            <p>
+              298.8 feet
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>\pm 17.3</m> ft
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>\pm 5.8</m><percent />
+            </p>
+          </li>
+        </ol>
+      </answer>
+    </exercise>
+
+    <exercise xml:id="exer_04_04_ex_34">
+      <statement>
+        <p>
+          The length <m>l</m> of a long wall is to be calculated by measuring the angle <m>\theta</m> shown in the diagram
+          (not to scale).
+          Assume the formed triangle is an isosceles triangle.
+          The measured angle is <m>143^\circ</m>,
+          accurate to <m>1^\circ</m>.
+        </p>
+
+        <sidebyside>
+
+          <image>
+
+<latex-image>
+          <![CDATA[\begin{tikzpicture}\draw [ultra thick] (1,-1) -- node [pos=.5,right] { \(l=\)?}(1,1);
+\draw [dashed] (1,1) -- (-1,0) node [xshift=10pt] { \(\theta\)} -- (1,-1);
+\draw (-.5,0) -- node [pos=.5,draw=white,fill=white] { \(50'\)} (1,0);\end{tikzpicture}]]>
+</latex-image>
+          </image>
+
+        </sidebyside>
+
+        <ol>
+          <li>
+            <p>
+              What is the measured length of the wall?
+            </p>
+          </li>
+
+          <li>
+            <p>
+              What is the propagated error?
+            </p>
+          </li>
+
+          <li>
+            <p>
+              What is the percent error?
+            </p>
+          </li>
+        </ol>
+      </statement>
+      <answer>
+        <ol>
+          <li>
+            <p>
+              298.9 feet
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>\pm 8.67</m> ft
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>\pm 2.9</m>
+            </p>
+          </li>
+        </ol>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          The length of the walls in <xref ref="exer_04_04_ex_35">Exercises</xref>
+          <mdash /> <xref ref="exer_04_04_ex_34"></xref> are essentially the same.
+          Which setup gives the most accurate result?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          The isosceles triangle setup works the best with the smallest percent error.
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          Consider the setup in <xref ref="exer_04_04_ex_34">Exercise</xref>.
+          This time, assume the angle measurement of
+          <m>143^\circ</m> is exact but the measured <m>50'</m> from the wall is accurate to <m>6''</m>.
+          What is the approximate percent error?
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+
+</section>
+
