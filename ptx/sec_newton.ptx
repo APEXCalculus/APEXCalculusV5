@@ -1,0 +1,693 @@
+
+
+<section xml:id="sec_newton">
+  <title>Newton's Method</title>
+  <introduction>
+    <p>
+      Solving equations is one of the most important things we do in mathematics,
+      yet we are surprisingly limited in what we can solve analytically.
+      For instance, equations as simple as <m>x^5+x+1=0</m> or
+      <m>\cos x =x</m> cannot be solved by algebraic methods in terms of familiar functions.
+      Fortunately,
+      there are methods that can give us <em>approximate</em>
+      solutions to equations like these.
+      These methods can usually give an approximation correct to as many decimal places as we like.
+      In <xref ref="sec_continuity">Section</xref>
+      we learned about the Bisection Method.
+      This section focuses on another technique
+      (which generally works faster),
+      called Newton's Method.
+    </p>
+
+    <p>
+      Newton's Method is built around tangent lines.
+      The main idea is that if <m>x</m> is sufficiently close to a root of <m>f(x)</m>,
+      then the tangent line to the graph at
+      <m>(x,f(x))</m> will cross the <m>x</m>-axis at a point closer to the root than <m>x</m>.
+    </p>
+
+    <sidebyside>
+      <img src="figures/fignewt1a"/> 
+      (a)
+      <img src="figures/fignewt1b"/> 
+      (b)
+    </sidebyside>
+<!--
+<caption>Demonstrating the geometric concept behind Newton's Method.</caption>
+-->
+    <sidebyside>
+      <img src="figures/fignewt1c"/> 
+      (c)
+    </sidebyside>
+
+    <p>
+      We start Newton's Method with an initial guess about roughly where the root is.
+      Call this <m>x_0</m>. (See <xref ref="fig_newt1">Figure</xref>(a).) Draw the tangent line to the graph at
+      <m>(x_0,f(x_0))</m> and see where it meets the <m>x</m>-axis.
+      Call this point <m>x_1</m>.
+      Then repeat the process <mdash /> draw the tangent line to the graph at
+      <m>(x_1, f(x_1))</m> and see where it meets the <m>x</m>-axis. (See <xref ref="fig_newt1">Figure</xref>(b).) Call this point <m>x_2</m>.
+      Repeat the process again to get <m>x_3</m>, <m>x_4</m>, etc.
+      This sequence of points will often converge rather quickly to a root of <m>f</m>.
+    </p>
+
+    <p>
+      We can use this <em>geometric</em>
+      process to create an <em>algebraic</em> process.
+      Let's look at how we found <m>x_1</m>.
+      We started with the tangent line to the graph at <m>(x_0,f(x_0))</m>.
+      The slope of this tangent line is
+      <m>\fp(x_0)</m> and the equation of the line is
+      <me>
+        y=\fp(x_0)(x-x_0)+f(x_0)
+      </me>.
+    </p>
+
+    <p>
+      This line crosses the <m>x</m>-axis when <m>y=0</m>,
+      and the <m>x</m><ndash />value where it crosses is what we called <m>x_1</m>.
+      So let <m>y=0</m> and replace <m>x</m> with <m>x_1</m>,
+      giving the equation:
+      <me>
+        0 = \fp(x_0)(x_1-x_0)+f(x_0)
+      </me>.
+    </p>
+
+    <p>
+      Now solve for <m>x_1</m>:
+      <me>
+        x_1=x_0-\frac{f(x_0)}{\fp(x_0)}
+      </me>.
+    </p>
+
+    <p>
+      Since we repeat the same geometric process to find <m>x_2</m> from <m>x_1</m>, we have
+      <me>
+        x_2=x_1-\frac{f(x_1)}{\fp(x_1)}
+      </me>.
+    </p>
+
+    <p>
+      In general, given an approximation <m>x_n</m>,
+      we can find the next approximation,
+      <m>x_{n+1}</m> as follows:
+      <me>
+        x_{n+1} = x_{n} - \frac{f(x_{n})}{\fp(x_{n})}
+      </me>.
+    </p>
+
+    <p>
+      We summarize this process as follows.
+    </p>
+
+    <insight xml:id="idea_Newton">
+      <title>Newton's Method</title>
+      <p>
+        Let <m>f</m> be a differentiable function on an interval <m>I</m> with a root in <m>I</m>.
+        To approximate the value of the root,
+        accurate to <m>d</m> decimal places:
+            <idx><h>Newton's Method</h></idx>
+        <ol>
+          <li>
+            <p>
+              Choose a value <m>x_0</m> as an initial approximation of the root.
+              (This is often done by looking at a graph of <m>f</m>.)
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Create successive approximations iteratively;
+              given an approximation <m>x_n</m>,
+              compute the next approximation <m>x_{n+1}</m> as
+              <me>
+                x_{n+1} = x_n - \frac{f(x_n)}{\fp(x_n)}
+              </me>.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Stop the iterations when successive approximations do not differ in the first <m>d</m> places after the decimal point.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </insight>
+
+    <aside>
+      <p>
+        <em>Note:</em> Newton's Method is not infallible.
+        The sequence of approximate values may not converge,
+        or it may converge so slowly that one is <q>tricked</q>
+        into thinking a certain approximation is better than it actually is.
+        These issues will be discussed at the end of the section.
+      </p>
+    </aside>
+    <p>
+      Let's practice Newton's Method with a concrete example.
+    </p>
+
+    <example xml:id="ex_newt2">
+      <title>Using Newton's Method</title>
+      <statement>
+        <p>
+          Approximate the real root of <m>x^3-x^2-1=0</m>,
+          accurate to the first 3 places after the decimal,
+          using Newton's Method and an initial approximation of <m>x_0=1</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          To begin, we compute <m>\fp(x)=3x^2-2x</m>.
+          Then we apply the Newton's Method algorithm,
+          outlined in <xref ref="idea_Newton">Key Idea</xref>.
+          <md>
+            <mrow>x_1\amp =1-\frac{f(1)}{\fp(1)}=1-\frac{1^3-1^2-1}{3\cdot 1^2-2\cdot 1}=2,</mrow>
+            <mrow>x_2\amp =2-\frac{f(2)}{\fp(2)}=2-\frac{2^3-2^2-1}{3\cdot 2^2-2\cdot 2}=1.625,</mrow>
+            <mrow>x_3\amp =1.625-\frac{f(1.625)}{\fp(1.625)} = 1.625-\frac{1.625^3-1.625^2-1}{3\cdot 1.625^2-2\cdot 1.625}\approx 1.48579.</mrow>
+            <mrow>x_4 \amp = 1.48579 - \frac{f(1.48579)}{\fp(1.48579)} \approx  1.46596</mrow>
+            <mrow>x_5 \amp = 1.46596 - \frac{f(1.46596)}{\fp(1.46596)} \approx 1.46557</mrow>
+          </md>
+        </p>
+
+        <p>
+          We performed 5 iterations of Newton's Method to find a root accurate to the first 3 places after the decimal;
+          our final approximation is <m>1.465</m>.
+          The exact value of the root, to six decimal places,
+          is <m>1.465571</m>; It turns out that our <m>x_5</m> is accurate to more than just 3 decimal places.
+        </p>
+
+        <p>
+          A graph of <m>f(x)</m> is given in <xref ref="fig_newt2">Figure</xref>.
+          We can see from the graph that our initial approximation of <m>x_0=1</m> was not particularly accurate;
+          a closer guess would have been <m>x_0=1.5</m>.
+          Our choice was based on ease of initial calculation,
+          and shows that Newton's Method can be robust enough that we do not have to make a very accurate initial approximation.
+        </p>
+
+        <figure xml:id="fig_newt2">
+          <caption>A graph of <m>f(x) = x^3-x^2-1</m> in <xref ref="ex_newt2">Example</xref>.</caption>
+          <img src="figures/fignewt2"/>
+        </figure>
+      </solution>
+    </example>
+
+    <p>
+      We can automate this process on a calculator that has an <c>Ans</c> key that returns the result of the previous calculation.
+      Start by pressing <c>1</c> and then <c>Enter</c>. (We have just entered our initial guess,
+      <m>x_0=1</m>.) Now compute
+      <me>
+        \text{ Ans }  - \frac{f(\text{ Ans } )}{\fp(\text{ Ans } )}
+      </me>
+      by entering the following and repeatedly press the <c>Enter</c> key:
+    </p>
+
+    <p>
+
+<c>Ans-(Ans^3-Ans^2-1)/(3*Ans^2-2*Ans)</c>
+    </p>
+
+    <p>
+      Each time we press the <c>Enter</c> key,
+      we are finding the successive approximations, <m>x_1</m>,
+      <m>x_2</m>,
+      <ellipsis />, and each one is getting closer to the root.
+      In fact, once we get past around <m>x_7</m> or so,
+      the approximations don't appear to be changing.
+      They actually are changing,
+      but the change is far enough to the right of the decimal point that it doesn't show up on the calculator's display.
+      When this happens,
+      we can be pretty confident that we have found an accurate approximation.
+    </p>
+
+    <p>
+      Using a calculator in this manner makes the calculations simple;
+      many iterations can be computed very quickly.
+    </p>
+
+    <example xml:id="ex_newt3">
+      <title>Using Newton's Method to find where functions intersect</title>
+      <statement>
+        <p>
+          Use Newton's Method to approximate a solution to <m>\cos{x} = x</m>,
+          accurate to 5 places after the decimal.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Newton's Method provides a method of solving <m>f(x) = 0</m>;
+          it is not (directly) a method for solving equations like <m>f(x) = g(x)</m>.
+          However, this is not a problem;
+          we can rewrite the latter equation as
+          <m>f(x) - g(x)=0</m> and then use Newton's Method.
+        </p>
+
+        <p>
+          So we rewrite <m>\cos x=x</m> as <m>\cos{x}-x=0</m>.
+          Written this way, we are finding a root of <m>f(x)=\cos{x}-x</m>.
+          We compute <m>\fp(x)=-\sin{x} - 1</m>.
+          Next we need a starting value, <m>x_0</m>.
+          Consider <xref ref="fig_newt3">Figure</xref>,
+          where <m>f(x) = \cos x-x</m> is graphed.
+          It seems that <m>x_0=0.75</m> is pretty close to the root,
+          so we will use that as our <m>x_0</m>. (The figure also shows the graphs of
+          <m>y=\cos x</m> and <m>y=x</m>, drawn with dashed lines.
+          Note how they intersect at the same <m>x</m> value as when <m>f(x) = 0</m>.)
+        </p>
+
+        <figure xml:id="fig_newt3">
+          <caption>A graph of <m>f(x)=\cos x-x</m> used to find an initial approximation of its root.</caption>
+          <img src="figures/fignewt3"/>
+        </figure>
+
+        <p>
+          We now compute <m>x_1</m>, <m>x_2</m>, etc.
+          The formula for <m>x_1</m> is
+          <me>
+            x_1 = 0.75 - \frac{\cos(0.75)-0.75}{-\sin(0.75)-1}\approx 0.7391111388
+          </me>.
+        </p>
+
+        <p>
+          Apply Newton's Method again to find <m>x_2</m>:
+          <me>
+            x_2 = 0.7391111388 - \frac{\cos(0.7391111388)-0.7391111388}{-\sin(0.7391111388)-1}\approx 0.7390851334
+          </me>.
+        </p>
+
+        <p>
+          We can continue this way, but it is really best to automate this process.
+          On a calculator with an Ans key,
+          we would start by pressing 0.75,
+          then <c>Enter</c>,
+          inputting our initial approximation.
+          We then enter:
+        </p>
+
+        <p>
+
+<c>Ans - (cos(Ans)-Ans)/(-sin(Ans)-1)</c>.
+        </p>
+
+        <p>
+          Repeatedly pressing the <c>Enter</c> key gives successive approximations.
+          We quickly find:
+          <md>
+            <mrow>x_3 \amp = 0.7390851332</mrow>
+            <mrow>x_4 \amp = 0.7390851332</mrow>
+          </md>.
+        </p>
+
+        <p>
+          Our approximations <m>x_2</m> and <m>x_3</m> did not differ for at least the first 5 places after the decimal,
+          so we could have stopped.
+          However, using our calculator in the manner described is easy,
+          so finding <m>x_4</m> was not hard.
+          It is interesting to see how we found an approximation,
+          accurate to as many decimal places as our calculator displays,
+          in just 4 iterations.
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      If you know how to program,
+      you can translate the following pseudocode into your favorite language to perform the computation in this problem.
+    </p>
+
+<pre>
+x = .75
+while true
+    oldx = x
+    x = x - (cos(x)-x)/(-sin(x)-1)
+    print x
+    if abs(x-oldx) &lt; .0000000001
+        break
+</pre>
+
+    <p>
+      This code calculates <m>x_1</m>, <m>x_2</m>,
+      etc., storing each result in the variable <c>x</c>.
+      The previous approximation is stored in the variable <c>oldx</c>.
+      We continue looping until the difference between two successive approximations, <c>abs(x-oldx)</c>,
+      is less than some small tolerance,
+      in this case,
+<c>.0000000001</c>.
+    </p>
+  </introduction>
+
+  <subsection xml:id="fig_newt4">
+    <title>Convergence of Newton's Method</title>
+    <p>
+      What should one use for the initial guess, <m>x_0</m>?
+      Generally, the closer to the actual root the initial guess is,
+      the better.
+      However, some initial guesses should be avoided.
+      For instance, consider <xref ref="ex_newt2">Example</xref>
+      where we sought the root to <m>f(x) = x^3-x^2-1</m>.
+      Choosing <m>x_0=0</m> would have been a particularly poor choice.
+      Consider <xref ref="fig_newt2a">Figure</xref>,
+      where <m>f(x)</m> is graphed along with its tangent line at <m>x=0</m>.
+      Since <m>\fp(0)=0</m>,
+      the tangent line is horizontal and does not intersect the <m>x</m><ndash />axis.
+      Graphically, we see that Newton's Method fails.
+    </p>
+
+    <figure xml:id="fig_newt2a">
+      <caption>A graph of <m>f(x) = x^3-x^2-1</m>, showing why an initial approximation of <m>x_0=0</m> with Newton's Method fails.</caption>
+      <img src="figures/fignewt2a"/>
+    </figure>
+
+    <p>
+      We can also see analytically that it fails.
+      Since
+      <me>
+        x_1 = 0 -\frac{f(0)}{\fp(0)}
+      </me>
+      and <m>\fp(0)=0</m>, we see that <m>x_1</m> is not well defined.
+    </p>
+
+    <p>
+      This problem can also occur if, for instance,
+      it turns out that <m>\fp(x_5)=0</m>.
+      Adjusting the initial approximation <m>x_0</m> by a very small amount will likely fix the problem.
+    </p>
+
+    <p>
+      It is also possible for Newton's Method to not converge while each successive approximation is well defined.
+      Consider <m>f(x) = x^{1/3}</m>,
+      as shown in <xref ref="fig_newt4">Figure</xref>.
+      It is clear that the root is <m>x=0</m>,
+      but let's approximate this with <m>x_0=0.1</m>.
+      <xref ref="fig_newt4">Figure</xref>(a) shows graphically the calculation of <m>x_1</m>;
+      notice how it is farther from the root than <m>x_0</m>.
+      <xref ref="fig_newt4">Figures</xref>(b) and (c) show the calculation of <m>x_2</m> and <m>x_3</m>,
+      which are even farther away;
+      our successive approximations are getting worse.
+      (It turns out that in this particular example,
+      each successive approximation is twice as far from the true answer as the previous approximation.)
+    </p>
+
+    <sidebyside>
+      <img src="figures/fignewt4a"/> 
+      (a)
+      <img src="figures/fignewt4b"/> 
+      (b)
+    </sidebyside>
+<!--
+<caption>Newton's Method fails to find a root of <m>f(x) = x^{1/3}</m>, regardless of the choice of <m>x_0</m>.</caption>
+-->
+    <sidebyside>
+      <img src="figures/fignewt4c"/> 
+      (c)
+    </sidebyside>
+
+    <p>
+      There is no <q>fix</q> to this problem; Newton's Method simply will not work and another method must be used.
+    </p>
+
+    <p>
+      While Newton's Method does not always work,
+      it does work <q>most of the time,</q>
+      and it is generally very fast.
+      Once the approximations get close to the root, Newton's Method can as much as double the number of correct decimal places with each successive approximation.
+      A course in Numerical Analysis will introduce the reader to more iterative root finding methods,
+      as well as give greater detail about the strengths and weaknesses of Newton's Method.
+    </p>
+  </subsection>
+
+  <subsection>
+    <title>Terms and Concepts</title>
+    <exercise>
+      <statement>
+        <p>
+          T/F: Given a function <m>f(x)</m>, Newton's Method produces an exact solution to <m>f(x) = 0</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          F
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          T/F: In order to get a solution to <m>f(x)=0</m> accurate to <m>d</m> places after the decimal,
+          at least <m>d+1</m> iterations of Newtons' Method must be used.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          F
+        </p>
+      </answer>
+    </exercise>
+  </subsection>
+
+  <subsection>
+    <title>Problems</title>
+    <p>
+      In the following exercises,
+      the roots of <m>f(x)</m> are known or are easily found.
+      Use 5 iterations of Newton's Method with the given initial approximation to approximate the root.
+      Compare it to the known value of the root.
+    </p>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>f(x) = \cos x</m>, <m>x_0=1.5</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>x_0=1.5</m>, <m>x_1=1.5709148</m>, <m>x_2=1.5707963</m>,
+          <m>x_3=1.5707963</m>, <m>x_4=1.5707963</m>, <m>x_5=1.5707963</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>f(x) = \sin x</m>, <m>x_0=1</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>x_0=1</m>, <m>x_1=-0.55740772</m>, <m>x_2=0.065936452</m>,
+          <m>x_3=-0.000095721919</m>, <m>x_4=2.9235662*10^{-13}</m>,
+          <m>x_5=0</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>f(x) = x^2+x-2</m>, <m>x_0=0</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>x_0=0</m>, <m>x_1=2</m>, <m>x_2=1.2</m>,
+          <m>x_3=1.0117647</m>, <m>x_4=1.0000458</m>, <m>x_5=1</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>f(x) = x^2-2</m>, <m>x_0=1.5</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>x_0=1.5</m>, <m>x_1=1.4166667</m>, <m>x_2=1.4142157</m>,
+          <m>x_3=1.4142136</m>, <m>x_4=1.4142136</m>, <m>x_5=1.4142136</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>f(x) = \ln x</m>, <m>x_0=2</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>x_0=2</m>, <m>x_1=0.6137056389</m>, <m>x_2=0.9133412072</m>,
+          <m>x_3=0.9961317034</m>, <m>x_4=0.9999925085</m>, <m>x_5=1</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>f(x) = x^3-x^2+x-1</m>, <m>x_0=1</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>x_0=1</m>, <m>x_1=1</m>,
+          <m>x_2=1</m>, <m>x_3=1</m>, <m>x_4=1</m>, <m>x_5=1</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <p>
+      In the following exercises,
+      use Newton's Method to approximate all roots of the given functions accurate to 3 places after the decimal.
+      If an interval is given, find only the roots that lie in that interval.
+      Use technology to obtain good initial approximations.
+    </p>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>f(x) = x^3+5x^2-x-1</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          roots are: <m>x=-5.156</m>, <m>x=-0.369</m> and <m>x=0.525</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>f(x) = x^4+2x^3-7x^2-x+5</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          roots are: <m>x=-3.714</m>, <m>x=-0.857</m>,
+          <m>x=1</m> and <m>x=1.571</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>f(x) = x^{17}-2x^{13}-10x^8+10</m> on <m>(-2,2)</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          roots are: <m>x=-1.013</m>, <m>x=0.988</m>, and <m>x=1.393</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>f(x) = x^2\cos x + (x-1)\sin x</m> on <m>(-3,3)</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          roots are: <m>x=-2.165</m>, <m>x=0</m>,
+          <m>x=0.525</m> and <m>x=1.813</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <p>
+      In the following exercises,
+      use Newton's Method to approximate when the given functions are equal,
+      accurate to 3 places after the decimal.
+      Use technology to obtain good initial approximations.
+    </p>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>f(x) = x^2</m>, <m>g(x) = \cos x</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>x=\pm 0.824</m>,
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>f(x) = x^2-1</m>, <m>g(x) = \sin x</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>x=-0.637</m>, <m>x=1.410</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>f(x) = e^{x^2}</m>, <m>g(x) = \cos (x)+1</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>x=\pm 0.743</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>f(x) = x</m>, <m>g(x) = \tan x</m> on <m>[-6,6]</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>x=\pm 4.493</m>, <m>x=0</m>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          Why does Newton's Method fail in finding a root of <m>f(x) = x^3-3x^2+x+3</m> when <m>x_0=1</m>?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          The approximations alternate between <m>x=1</m> and <m>x=2</m>.
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          Why does Newton's Method fail in finding a root of <m>f(x) = -17x^4+130x^3-301x^2+156x+156</m> when <m>x_0=1</m>?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          The approximations alternate between <m>x=1</m>,
+          <m>x=2</m> and <m>x=3</m>.
+        </p>
+      </answer>
+    </exercise>
+  </subsection>
+
+</section>
+

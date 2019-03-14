@@ -1,0 +1,27 @@
+
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="chapter_integration">
+  <title>Integration</title>
+  <introduction>
+    <p>
+      {
+      {}
+      We have spent considerable time considering the derivatives of a function and their applications.
+      In the following chapters,
+      we are going to starting thinking in
+      <q>the other direction.</q> That is,
+      given a function <m>f(x)</m>,
+      we are going to consider functions <m>F(x)</m> such that <m>F'(x) = f(x)</m>.
+      There are numerous reasons this will prove to be useful:
+      these functions will help us compute area,
+      volume, mass, force, pressure, work, and much more.
+    </p>
+  </introduction>
+
+  <xi:include  href="sec_antider.ptx" />
+  <xi:include  href="sec_def_int.ptx" />
+  <xi:include  href="sec_riemann.ptx" />
+  <xi:include  href="sec_FTC.ptx" />
+  <xi:include  href="sec_numerical_integration.ptx" />
+</chapter>
+

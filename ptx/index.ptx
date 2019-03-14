@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<mathbook xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
+  <docinfo>
+<!-- <xi:include href="../macros.ptx" /> -->
+<!-- 
+
+<xi:include href="../latex-image-preamble.ptx" />
+
+-->
+    <rename element="insight" lang="en-US">Key Idea</rename>
+  </docinfo>
+
+  <book>
+    <title>Title Goes Here</title>
+    <frontmatter>
+      <titlepage>
+      </titlepage>
+    </frontmatter>
+
+    <xi:include href="./chapter_limits.ptx" />
+
+    <xi:include href="./chapter_derivatives.ptx" />
+
+    <xi:include href="./chapter_graphbehavior.ptx" />
+
+    <xi:include href="./chapter_deriv_apps.ptx" />
+
+    <xi:include href="./chapter_integration.ptx" />
+
+    <xi:include href="./chapter_anti_tech.ptx" />
+
+    <backmatter>
+      <xi:include href="./bibliography.ptx" />
+
+      <index>
+        <title>Index</title>
+        <index-list />
+      </index>
+
+    </backmatter>
+  </book>
+</mathbook>
+
