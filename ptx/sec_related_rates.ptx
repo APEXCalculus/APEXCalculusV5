@@ -1,0 +1,1065 @@
+
+
+<section xml:id="sec_related_rates">
+  <title>Related Rates</title>
+  <introduction>
+    <p>
+      When two quantities are related by an equation,
+      knowing the value of one quantity can determine the value of the other.
+      For instance,
+      the circumference and radius of a circle are related by <m>C=2\pi r</m>;
+      knowing that <m>C = 6\pi</m>in determines the radius must be 3in.
+    </p>
+
+    <p>
+      The topic of <em>related rates</em>
+      takes this one step further:
+      knowing the <em>rate</em> at which one quantity is changing can determine the
+      <em>rate</em> at which another changes.
+          <idx><h>related rates</h></idx>
+    </p>
+    <aside>
+      <p>
+        <em>Note:</em> This section relies heavily on implicit differentiation,
+        so referring back to <xref ref="sec_imp_deriv">Section</xref> may help.
+      </p>
+    </aside>
+    <p>
+      We demonstrate the concepts of related rates through examples.
+    </p>
+
+    <example xml:id="ex_rr1">
+      <title>Understanding related rates</title>
+      <statement>
+        <p>
+          The radius of a circle is growing at a rate of 5in/hr.
+          At what rate is the circumference growing?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The circumference and radius of a circle are related by <m>C = 2\pi r</m>.
+          We are given information about how the length of <m>r</m> changes with respect to time;
+          that is, we are told <m>\frac{dr}{dt} = 5</m>in/hr.
+          We want to know how the length of <m>C</m> changes with respect to time,
+          i.e., we want to know <m>\frac{dC}{dt}</m>.
+        </p>
+
+        <p>
+          Implicitly differentiate both sides of
+          <m>C = 2\pi r</m> with respect to <m>t</m>:
+          <md>
+            <mrow>C   \amp = 2\pi r</mrow>
+            <mrow>\frac{d}{dt}\big(C\big) \amp = \frac{d}{dt}\big(2\pi r\big)</mrow>
+            <mrow>\frac{dC}{dt}   \amp =  2\pi \frac{dr}{dt}</mrow>
+          </md>.
+        </p>
+
+        <p>
+          As we know <m>\frac{dr}{dt} = 5</m>in/hr, we know
+          <me>
+            \frac{dC}{dt} = 2\pi 5 = 10\pi \approx 31.4\text{ in/hr. }
+          </me>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      Consider another, similar example.
+    </p>
+
+    <example xml:id="ex_rr2">
+      <title>Finding related rates</title>
+      <statement>
+        <p>
+          Water streams out of a faucet at a rate of <m>2</m>in<m>^3</m>/s onto a flat surface at a constant rate,
+          forming a circular puddle that is <m>1/8</m>in deep.
+
+          <ol>
+            <li>
+              <p>
+                At what rate is the area of the puddle growing?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                At what rate is the radius of the circle growing?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <ol>
+            <li>
+              <p>
+                We can answer this question two ways:
+                using <q>common sense</q> or related rates.
+                The common sense method states that the volume of the puddle is growing by <m>2</m>in<m>^3</m>/s, where
+
+                volume of puddle <m>=</m> area of circle <times /> depth.
+
+                Since the depth is constant at <m>1/8</m>in,
+                the area must be growing by 16in<m>^2</m>/s.
+
+                This approach reveals the underlying related<ndash />rates principle.
+                Let <m>V</m> and <m>A</m> represent the Volume and Area of the puddle.
+                We know <m>V= A\times \frac18</m>.
+                Take the derivative of both sides with respect to <m>t</m>,
+                employing implicit differentiation.
+                <md>
+                  <mrow>V \amp = \frac18A</mrow>
+                  <mrow>\frac{d}{dt}\big(V\big) \amp = \frac{d}{dt}\left(\frac18A\right)</mrow>
+                  <mrow>\frac{dV}{dt} \amp =  \frac18\frac{dA}{dt}</mrow>
+                </md>
+                As <m>\frac{dV}{dt} = 2</m>,
+                we know <m>2 = \frac18\frac{dA}{dt}</m>,
+                and hence <m>\frac{dA}{dt} = 16</m>.
+                Thus the area is growing by 16in<m>^2</m>/s.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                To start, we need an equation that relates what we know to the radius.
+                We just learned something about the surface area of the circular puddle,
+                and we know <m>A = \pi r^2</m>.
+                We should be able to learn about the rate at which the radius is growing with this information. 
+
+                Implicitly derive both sides of
+                <m>A=\pi r^2</m> with respect to <m>t</m>:
+                <md>
+                  <mrow>A   \amp = \pi r^2</mrow>
+                  <mrow>\frac{d}{dt}\big(A\big) \amp = \frac{d}{dt}\big(\pi r^2\big)</mrow>
+                  <mrow>\frac{dA}{dt} \amp = 2\pi r\frac{dr}{dt}</mrow>
+                </md>
+                Our work above told us that <m>\frac{dA}{dt} = 16</m>in<m>^2</m>/s.
+                Solving for <m>\frac{dr}{dt}</m>, we have
+                <me>
+                  \frac{dr}{dt} = \frac{8}{\pi r}
+                </me>.
+                Note how our answer is not a number,
+                but rather a function of <m>r</m>.
+                In other words,
+                <em>the rate at which the radius is growing depends on how big the circle already is.</em>
+                If the circle is very large,
+                adding 2in<m>^3</m> of water will not make the circle much bigger at all.
+                If the circle is dime<ndash />sized,
+                adding the same amount of water will make a radical change in the radius of the circle.
+
+                In some ways, our problem was (intentionally) ill<ndash />posed.
+                We need to specify a current radius in order to know a rate of change.
+                When the puddle has a radius of 10in,
+                the radius is growing at a rate of
+                <me>
+                  \frac{dr}{dt} = \frac{8}{10\pi} = \frac{4}{5\pi} \approx 0.25\text{ in/s } 
+                </me>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
+    </example>
+
+    <example xml:id="ex_rr3">
+      <title>Studying related rates</title>
+      <statement>
+        <p>
+          Radar guns measure the rate of distance change between the gun and the object it is measuring.
+          For instance, a reading of <q>55mph</q>
+          means the object is moving away from the gun at a rate of 55 miles per hour,
+          whereas a measurement of <q><m>-25</m>mph</q>
+          would mean that the object is approaching the gun at a rate of 25 miles per hour.
+        </p>
+
+        <p>
+          If the radar gun is moving (say,
+          attached to a police car) then radar readouts are only immediately understandable if the gun and the object are moving along the same line.
+          If a police officer is traveling 60mph and gets a readout of 15mph,
+          he knows that the car ahead of him is moving away at a rate of 15 miles an hour,
+          meaning the car is traveling 75mph.
+          (This straight<ndash />line principle is one reason officers park on the side of the highway and try to shoot straight back down the road.
+          It gives the most accurate reading.)
+        </p>
+
+        <p>
+          Suppose an officer is driving due north at 30 mph and sees a car moving due east,
+          as shown in <xref ref="fig_rr3">Figure</xref>.
+          Using his radar gun, he measures a reading of 20mph.
+          By using landmarks,
+          he believes both he and the other car are about 1/2 mile from the intersection of their two roads.
+        </p>
+
+        <figure xml:id="fig_rr3">
+          <caption>A sketch of a police car (at bottom) attempting to measure the speed of a car (at right) in <xref ref="ex_rr3">Example</xref>.</caption>
+          <img src="figures/figrr3"/>
+        </figure>
+
+        <p>
+          If the speed limit on the other road is 55mph,
+          is the other driver speeding?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Using the diagram in <xref ref="fig_rr3">Figure</xref>,
+          let's label what we know about the situation.
+          As both the police officer and other driver are 1/2 mile from the intersection,
+          we have <m>A = 1/2</m>, <m>B = 1/2</m>,
+          and through the Pythagorean Theorem,
+          <m>C = 1/\sqrt{2}\approx 0.707</m>.
+        </p>
+
+        <p>
+          We know the police officer is traveling at 30mph;
+          that is, <m>\frac{dA}{dt} = -30</m>.
+          The reason this rate of change is negative is that <m>A</m> is getting smaller;
+          the distance between the officer and the intersection is shrinking.
+          The radar measurement is <m>\frac{dC}{dt} = 20</m>.
+          We want to find <m>\frac{dB}{dt}</m>.
+        </p>
+
+        <p>
+          We need an equation that relates <m>B</m> to <m>A</m> and/or <m>C</m>.
+          The Pythagorean Theorem is a good choice:
+          <m>A^2+B^2 = C^2</m>.
+          Differentiate both sides with respect to <m>t</m>:
+          <md>
+            <mrow>A^2 + B^2 \amp = C^2</mrow>
+            <mrow>\frac{d}{dt}\left(A^2+B^2\right) \amp = \frac{d}{dt}\left(C^2\right)</mrow>
+            <mrow>2A\frac{dA}{dt} + 2B\frac{dB}{dt} \amp = 2C\frac{dC}{dt}</mrow>
+          </md>
+        </p>
+
+        <p>
+          We have values for everything except <m>\frac{dB}{dt}</m>.
+          Solving for this we have
+          <me>
+            \frac{dB}{dt} = \frac{C\frac{dC}{dt}- A\frac{dA}{dt}}{B} \approx 58.28\text{ mph } 
+          </me>.
+        </p>
+
+        <p>
+          The other driver appears to be speeding slightly.
+        </p>
+      </solution>
+    </example>
+
+    <aside>
+      <p>
+        <em>Note:</em> <xref ref="ex_rr3">Example</xref>
+        is both interesting and impractical.
+        It highlights the difficulty in using radar in a non<ndash />linear fashion,
+        and explains why <q>in real life</q>
+        the police officer would follow the other driver to determine their speed,
+        and not pull out pencil and paper.
+      </p>
+
+      <p>
+        The principles here are important, though.
+        Many automated vehicles make judgments about other moving objects based on perceived distances,
+        radar<ndash />like measurements and the concepts of related rates.
+      </p>
+    </aside>
+
+    <example xml:id="ex_rr4">
+      <title>Studying related rates</title>
+      <statement>
+        <p>
+          A camera is placed on a tripod 10ft from the side of a road.
+          The camera is to turn to track a car that is to drive by at 100mph for a promotional video.
+          The video's planners want to know what kind of motor the tripod should be equipped with in order to properly track the car as it passes by.
+          <xref ref="fig_rr4">Figure</xref> shows the proposed setup.
+        </p>
+
+        <figure xml:id="fig_rr4">
+          <caption>Tracking a speeding car (at left) with a rotating camera.</caption>
+          <img src="figures/figrr4"/>
+        </figure>
+
+        <p>
+          How fast must the camera be able to turn to track the car?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We seek information about how fast the camera is to <em>turn</em>;
+          therefore, we need an equation that will relate an angle <m>\theta</m> to the position of the camera and the speed and position of the car.
+        </p>
+
+        <p>
+          <xref ref="fig_rr4">Figure</xref>
+          suggests we use a trigonometric equation.
+          Letting <m>x</m> represent the distance the car is from the point on the road directly in front of the camera, we have
+          <men xml:id="eq_rr4">
+            \tan \theta = \frac{x}{10}
+          </men>.
+        </p>
+
+        <p>
+          As the car is moving at 100mph,
+          we have <m>\frac{dx}{dt} = -100</m>mph
+          (as in the last example,
+          since <m>x</m> is getting smaller as the car travels,
+          <m>\frac{dx}{dt}</m> is negative).
+          We need to convert the measurements so they use the same units;
+          rewrite <m>-100</m>mph in terms of ft/s:
+          <me>
+            \frac{dx}{dt} = -100\frac{\text{m} }{\text{ hr } } = -100\frac{\text{m} }{\text{ hr } }\cdot5280\frac{\text{ ft } }{\text{m} }\cdot\frac{1}{3600}\frac{\text{ hr } }{\text{s} } =-146.\overline{6}\text{ ft/s } 
+          </me>.
+        </p>
+
+        <p>
+          Now take the derivative of both sides of Equation <xref ref="eq_rr4" /> using implicit differentiation:
+          <md>
+            <mrow>\tan \theta \amp = \frac{x}{10}</mrow>
+            <mrow>\frac{d}{dt}\big(\tan \theta\big) \amp = \frac{d}{dt}\left(\frac{x}{10}\right)</mrow>
+            <mrow>\sec^2\theta\,\frac{d\theta}{dt} \amp = \frac{1}{10}\frac{dx}{dt}</mrow>
+            <mrow>\frac{d\theta}{dt} \amp = \frac{\cos^2\theta}{10}\frac{dx}{dt}</mrow>
+          </md>
+        </p>
+
+        <p>
+          We want to know the fastest the camera has to turn.
+          Common sense tells us this is when the car is directly in front of the camera (i.e., when <m>\theta = 0</m>).
+          Our mathematics bears this out.
+          In Equation <xref ref="eq_rr4b" /> we see this is when <m>\cos^2\theta</m> is largest;
+          this is when <m>\cos \theta = 1</m>,
+          or when <m>\theta = 0</m>.
+        </p>
+
+        <p>
+          With <m>\frac{dx}{dt} \approx -146.67</m>ft/s, we have
+          <me>
+            \frac{d\theta}{dt} = -\frac{1\text{ rad } }{10\text{ ft } }146.67\text{ ft/s }  = -14.667\text{ radians/s } 
+          </me>.
+        </p>
+
+        <p>
+          We find that <m>\frac{d\theta}{dt}</m> is negative;
+          this matches our diagram in <xref ref="fig_rr4">Figure</xref>
+          for <m>\theta</m> is getting smaller as the car approaches the camera.
+        </p>
+
+        <p>
+          What is the practical meaning of <m>-14.667</m>radians/s?
+          Recall that 1 circular revolution goes through <m>2\pi</m> radians,
+          thus <m>14.667</m>rad/s means
+          <m>14.667/(2\pi)\approx 2.33</m> revolutions per second.
+          The negative sign indicates the camera is rotating in a clockwise fashion.
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      We introduced the derivative as a function that gives the slopes of tangent lines of functions.
+      This chapter emphasizes using the derivative in other ways.
+      Newton's Method uses the derivative to approximate roots of functions;
+      this section stresses the <q>rate of change</q>
+      aspect of the derivative to find a relationship between the rates of change of two related quantities.
+    </p>
+
+    <p>
+      In the next section we use Extreme Value concepts to
+      <em>optimize</em> quantities.
+    </p>
+  </introduction>
+
+  <subsection>
+    <title>Terms and Concepts</title>
+    <exercise>
+      <statement>
+        <p>
+          T/F: Implicit differentiation is often used when solving
+          <q>related rates</q> type problems.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          T
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          T/F: A study of related rates is part of the standard police officer training.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          F
+        </p>
+      </answer>
+    </exercise>
+  </subsection>
+
+  <subsection>
+    <title>Problems</title>
+    <exercise>
+      <statement>
+        <p>
+          Water flows onto a flat surface at a rate of 5cm<m>^3</m>/s forming a circular puddle 10mm deep.
+          How fast is the radius growing when the radius is:
+
+          <ol>
+            <li>
+              <p>
+                1 cm?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                10 cm?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                100 cm?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      <answer>
+        <ol>
+          <li>
+            <p>
+              <m>5/(2\pi) \approx 0.796</m>cm/s
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>1/(4\pi)\approx 0.0796</m> cm/s
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>1/(40\pi)\approx 0.00796</m> cm/s
+            </p>
+          </li>
+        </ol>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          A spherical balloon is inflated with air flowing at a rate of 10cm<m>^3</m>/s.
+          How fast is the radius of the balloon increasing when the radius is:
+
+          <ol>
+            <li>
+              <p>
+                1 cm?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                10 cm?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                100 cm?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      <answer>
+        <ol>
+          <li>
+            <p>
+              <m>5/(2\pi)\approx 0.796</m>cm/s
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>1/(40\pi)\approx 0.00796</m> cm/s
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>1/(4000\pi)\approx 0.0000796</m> cm/s
+            </p>
+          </li>
+        </ol>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          Consider the traffic situation introduced in <xref ref="ex_rr3">Example</xref>.
+          How fast is the <q>other car</q>
+          traveling if the officer and the other car are each 1/2 mile from the intersection,
+          the other car is traveling <em>due west</em>,
+          the officer is traveling north at 50mph,
+          and the radar reading is <m>-80</m>mph?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>63.14</m>mph
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          Consider the traffic situation introduced in <xref ref="ex_rr3">Example</xref>.
+          Calculate how fast the <q>other car</q>
+          is traveling in each of the following situations.
+
+          <ol>
+            <li>
+              <p>
+                The officer is traveling due north at 50mph and is 1/2 mile from the intersection,
+                while the other car is 1 mile from the intersection traveling west and the radar reading is <m>-80</m>mph?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                The officer is traveling due north at 50mph and is 1 mile from the intersection,
+                while the other car is 1/2 mile from the intersection traveling west and the radar reading is <m>-80</m>mph?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      <answer>
+        <ol>
+          <li>
+            <p>
+              <m>64.44</m> mph
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>78.89</m> mph
+            </p>
+          </li>
+        </ol>
+      </answer>
+    </exercise>
+
+    <exercise xml:id="exer_04_02_ex_07">
+      <statement>
+        <p>
+          An F-22 aircraft is flying at 500mph with an elevation of 10,000ft on a straight<ndash />line path that will take it directly over an anti<ndash />aircraft gun.
+        </p>
+
+        <p>
+          <img src="figures/fig04_02_ex_07"/>
+        </p>
+
+        <p>
+          How fast must the gun be able to turn to accurately track the aircraft when the plane is:
+
+          <ol>
+            <li>
+              <p>
+                1 mile away?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                1/5 mile away?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Directly overhead?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Due to the height of the plane,
+          the gun does not have to rotate very fast.
+
+          <ol>
+            <li>
+              <p>
+                <m>0.0573</m> rad/s
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>0.0725</m> rad/s
+              </p>
+            </li>
+
+            <li>
+              <p>
+                In the limit, rate goes to <m>0.0733</m> rad/s
+              </p>
+            </li>
+          </ol>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          An F-22 aircraft is flying at 500mph with an elevation of 100ft on a straight<ndash />line path that will take it directly over an anti<ndash />aircraft gun as in <xref ref="exer_04_02_ex_07">Exercise</xref>
+          (note the lower elevation here).
+        </p>
+
+        <p>
+          How fast must the gun be able to turn to accurately track the aircraft when the plane is:
+
+          <ol>
+            <li>
+              <p>
+                1000 feet away?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                100 feet away?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Directly overhead?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Due to the height of the plane,
+          the gun does not have to rotate very fast.
+
+          <ol>
+            <li>
+              <p>
+                <m>0.073</m> rad/s
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>3.66</m> rad/s (about 1/2 revolution/sec)
+              </p>
+            </li>
+
+            <li>
+              <p>
+                In the limit,
+                rate goes to <m>7.33</m> rad/s (more than 1 revolution/sec)
+              </p>
+            </li>
+          </ol>
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          A 24ft. ladder is leaning against a house while the base is pulled away at a constant rate of 1ft/s.
+        </p>
+
+        <sidebyside>
+          <img src="figures/fig04_02_ex_09"/>
+        </sidebyside>
+
+        <p>
+          At what rate is the top of the ladder sliding down the side of the house when the base is:
+
+          <ol>
+            <li>
+              <p>
+                1 foot from the house?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                10 feet from the house?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                23 feet from the house?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                24 feet from the house?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      <answer>
+        <ol>
+          <li>
+            <p>
+              <m>0.04</m> ft/s
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>0.458</m> ft/s
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>3.35</m> ft/s
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Not defined; as the distance approaches 24,
+              the rates approaches <m>\infty</m>.
+            </p>
+          </li>
+        </ol>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          A boat is being pulled into a dock at a constant rate of 30ft/min by a winch located 10ft above the deck of the boat.
+        </p>
+
+        <sidebyside>
+          <img src="figures/fig04_02_ex_10"/>
+        </sidebyside>
+
+        <p>
+          At what rate is the boat approaching the dock when the boat is:
+
+          <ol>
+            <li>
+              <p>
+                50 feet out?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                15 feet out?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                1 foot from the dock?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                What happens when the length of rope pulling in the boat is less than 10 feet long?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      <answer>
+        <ol>
+          <li>
+            <p>
+              <m>30.59</m> ft/min
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>36.1</m> ft/min
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>301</m> ft/min
+            </p>
+          </li>
+
+          <li>
+            <p>
+              The boat no longer floats as usual,
+              but is being pulled up by the winch
+              (assuming it has the power to do so).
+            </p>
+          </li>
+        </ol>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          An inverted cylindrical cone, 20ft deep and 10ft across at the top,
+          is being filled with water at a rate of 10ft<m>^3</m>/min.
+          At what rate is the water rising in the tank when the depth of the water is:
+
+          <ol>
+            <li>
+              <p>
+                1 foot?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                10 feet?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                19 feet?
+              </p>
+            </li>
+          </ol>
+        </p>
+
+        <p>
+          How long will the tank take to fill when starting at empty?
+        </p>
+      </statement>
+      <answer>
+        <ol>
+          <li>
+            <p>
+              <m>50.92</m> ft/min
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>0.509</m> ft/min
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>0.141</m> ft/min
+            </p>
+          </li>
+        </ol>
+
+        <p>
+          As the tank holds about 523.6ft<m>^3</m>,
+          it will take about 52.36 minutes.
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise xml:id="exer_04_02_ex_12">
+      <statement>
+        <p>
+          A rope, attached to a weight,
+          goes up through a pulley at the ceiling and back down to a worker.
+          The man holds the rope at the same height as the connection point between rope and weight.
+        </p>
+
+        <sidebyside>
+          <img src="figures/fig04_02_ex_12"/>
+        </sidebyside>
+
+        <p>
+          Suppose the man stands directly next to the weight (i.e., a total rope length of 60 ft) and begins to walk away at a rate of 2ft/s.
+          How fast is the weight rising when the man has walked:
+
+          <ol>
+            <li>
+              <p>
+                10 feet?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                40 feet?
+              </p>
+            </li>
+          </ol>
+        </p>
+
+        <p>
+          How far must the man walk to raise the weight all the way to the pulley?
+        </p>
+      </statement>
+      <answer>
+        <ol>
+          <li>
+            <p>
+              <m>0.63</m> ft/sec
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>1.6</m> ft/sec
+            </p>
+          </li>
+        </ol>
+
+        <p>
+          About 52 ft.
+        </p>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          Consider the situation described in <xref ref="exer_04_02_ex_12">Exercise</xref>.
+          Suppose the man starts 40ft from the weight and begins to walk away at a rate of 2ft/s.
+
+          <ol>
+            <li>
+              <p>
+                How long is the rope?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How fast is the weight rising after the man has walked 10 feet?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How fast is the weight rising after the man has walked 30 feet?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How far must the man walk to raise the weight all the way to the pulley?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      <answer>
+        <ol>
+          <li>
+            <p>
+              The rope is 80ft long.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>1.71</m> ft/sec
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>1.84</m> ft/sec
+            </p>
+          </li>
+
+          <li>
+            <p>
+              About 34 feet.
+            </p>
+          </li>
+        </ol>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          A hot air balloon lifts off from ground rising vertically.
+          From 100 feet away, a 5' woman tracks the path of the balloon.
+          When her sightline with the balloon makes a 45<m>^\circ</m> angle with the horizontal,
+          she notes the angle is increasing at about 5<m>^\circ</m>/min.
+
+          <ol>
+            <li>
+              <p>
+                What is the elevation of the balloon?
+              </p>
+            </li>
+
+            <li>
+              <p>
+                How fast is it rising?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      <answer>
+        <ol>
+          <li>
+            <p>
+              The balloon is 105ft in the air.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              The balloon is rising at a rate of 17.45ft/min.
+              (Hint: convert all angles to radians.)
+            </p>
+          </li>
+        </ol>
+      </answer>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          A company that produces landscaping materials is dumping sand into a conical pile.
+          The sand is being poured at a rate of 5ft<m>^3</m>/sec;
+          the physical properties of the sand,
+          in conjunction with gravity,
+          ensure that the cone's height is roughly 2/3 the length of the diameter of the circular base.
+        </p>
+
+        <p>
+          How fast is the cone rising when it has a height of 30 feet?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          The cone is rising at a rate of <m>0.003</m>ft/s.
+        </p>
+      </answer>
+    </exercise>
+  </subsection>
+</section>
+
