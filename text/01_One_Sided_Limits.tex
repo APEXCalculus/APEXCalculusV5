@@ -124,7 +124,7 @@ The phrase ``if, and only if'' means the two statements are \textit{equivalent}:
 One thing to consider in Examples \ref{ex_onesidea} -- \ref{ex_onesided} is that the value of the function may/may not be equal to the value(s) of its left/right-hand limits, even when these limits agree. \\
 
 \example{ex_onesideb}{Evaluating limits of a piecewise--defined function}{
-Let $f(x) = \left\{\begin{array}{cc} 2-x & 0<x<1 \\ (x-2)^2 & 1<x<2 \end{array},\right.$ as shown in Figure \ref{fig:onesidedb}. Evaluate the following. 
+Let $f(x) = \left\{\begin{array}{cc} 2-x & 0<x<1 \\ (x-2)^2 & 1<x<2 \end{array}.\right.$  Evaluate the following. 
 
 \noindent\begin{minipage}[t]{.5\textwidth}
 		\begin{enumerate}
@@ -143,20 +143,21 @@ Let $f(x) = \left\{\begin{array}{cc} 2-x & 0<x<1 \\ (x-2)^2 & 1<x<2 \end{array},
 		\end{enumerate}	
 		\end{minipage}
 		
-\mfigure{.35}{A graph of $f$ from Example \ref{ex_onesideb}}{fig:onesidedb}{figures/figOneSidedLimits2}		
 }
-{Again we will evaluate each using both the definition of $f$ and its graph.
+{In this example, we evaluate each expression using just the definition of $f$, without using a graph as we did in the previous example.
 		\begin{enumerate}
-		\item		As $x$ approaches 1 from the left, we see that $f(x)$ approaches 1. Therefore $\ds \lim_{x\to 1^-} f(x)=1.$
-		\item		As $x$ approaches 1 from the right, we see that again $f(x)$ approaches 1. Therefore $\ds \lim_{x\to 1+} f(x)=1$.
+		\item		As $x$ approaches 1 from the left, we consider a limit where all $x$-values are less than 1. This means we use the $2-x$ piece of the piecewise function $f$ as the domain for that piece is $(0,1)$. As the $x$-values near 1, $2-x$ approaches 1; that is, $f(x)$ approaches 1. Therefore $\ds \lim_{x\to 1^-} f(x)=1.$
+		\item		As $x$ approaches 1 from the right, we consider a limit where all $x$-values are greater than 1. This means we use the $(x-2)^2$ piece of $f$ as the domain for that piece is $(1,2)$. As the $x$-values near 1, $(x-2)^2$ approaches 1; that is, we see that again $f(x)$ approaches 1. Therefore $\ds \lim_{x\to 1+} f(x)=1$.
 		\item		\textit{The} limit of $f$ as $x$ approaches 1 exists and is 1, as $f$ approaches 1 from both the right and left. Therefore $\ds \lim_{x\to 1} f(x)=1$.
-		\item		$f(1)$ is not defined. Note that 1 is not in the domain of $f$ as defined by the problem, which is indicated on the graph by an open circle when $x=1$.
-		\item		As $x$ goes to 0 from the right, $f(x)$ approaches 2. So $\ds \lim_{x\to 0^+} f(x)=2$.
+		\item		Neither piece of $f$ is defined for the $x$-value of 1; in other words, 1 is not in the domain of $f$. Therefore $f(1)$ is not defined.  %Note that 1 is not in the domain of $f$ as defined by the problem, which is indicated on the graph by an open circle when $x=1$.
+		\item		As $x$ approaches  0 from the right, we consider a limit where all $x$-values are greater than 0. This means we use the $2-x$ piece of $f$. As the $x$-values near 0, $2-x$ approaches 2; that is, $f(x)$ approaches 2. So $\ds \lim_{x\to 0^+} f(x)=2$.
 		\item		$f(0)$  is not defined as $0$ is not in the domain of $f$.
-		\item		As $x$ goes to 2 from the left, $f(x)$ approaches 0. So $\ds \lim_{x\to 2^-} f(x)=0$.
+		\item		As $x$ approaches  2 from the left, we consider a limit where all $x$-values are less than 2. This means we use the $(x-2)^2$ piece of $f$. As the $x$-values near 2, $(x-2)^2$ nears 0; that is, $f(x)$ approaches 0. So $\ds \lim_{x\to 2^-} f(x)=0$.
 		\item		$f(2)$  is not defined as 2 is not in the domain of $f$.
 		\end{enumerate}
-\vskip -\baselineskip
+We can confirm our analytic result by consulting the graph of $f$ shown in Figure \ref{fig:onesidedb}.	Note the open circles on the graph at $x=0$, $1$ and $2$, where $f$ is not defined.	
+		\mfigure{.8}{A graph of $f$ from Example \ref{ex_onesideb}}{fig:onesidedb}{figures/figOneSidedLimits2}
+%\vskip -\baselineskip
 }\\
 
 \example{ex_onesidec}{Evaluating limits of a piecewise--defined function}{
@@ -175,7 +176,7 @@ Let $f(x) = \left\{\begin{array}{cc} (x-1)^2 & 0\leq x\leq 2, x\neq 1\\ 1 & x=1\
 		\end{enumerate}
 		\end{minipage}
 		
-\mfigure{.45}{Graphing $f$ in Example \ref{ex_onesidec}}{fig:onesidedc}{figures/figOneSidedLimits3}		
+\mfigure{.30}{Graphing $f$ in Example \ref{ex_onesidec}}{fig:onesidedc}{figures/figOneSidedLimits3}		
 }
 {		It is clear by looking at the graph that both the left and right-hand limits of $f$, as $x$ approaches 1, are 0. Thus it is also clear that \textit{the} limit is 0; i.e., $\ds \lim_{x\to 1} f(x) = 0$. It is also clearly stated that $f(1) = 1$. \vskip .4\baselineskip
 }\\
