@@ -78,8 +78,8 @@ marginparwidth=150pt]{geometry}
 	{}
 
 \newboolean{colorprint}
-\setboolean{colorprint}{true}
-%\setboolean{colorprint}{false}
+%\setboolean{colorprint}{true}
+\setboolean{colorprint}{false}
 
 \ifthenelse{\boolean{colorprint}}{%
 \newcommand{\colorone}{blue}
@@ -130,8 +130,8 @@ marginparwidth=150pt]{geometry}
 
 
 \newboolean{editmode}
-\setboolean{editmode}{true}
-%\setboolean{editmode}{false}
+%\setboolean{editmode}{true}
+\setboolean{editmode}{false}
 
 \ifthenelse{\boolean{editmode}}% edit mode: don't do anything here
 {} %nothing
@@ -145,32 +145,24 @@ marginparwidth=150pt]{geometry}
 
 \begin{document}
 
-\mysettikzname{figdiff_closed1}
-\input{fig_diff_closed1}
+\mysettikzname{figdefint1}
+\input{fig_defint1}
+
+Image File Name: \texttt{\detokenize{figdiff_closed1}}\par
+TeX File Name: \texttt{\detokenize{fig_diff_closed1}}\par
+
+\mysettikzname{figdefint2}
+\input{fig_defint2}
 
 Image File Name: \texttt{\detokenize{figdiff_closed1}}\par
 TeX File Name: \texttt{\detokenize{fig_diff_closed1}}\par
 
 
+\mysettikzname{figdefint3}
+\input{fig_defint3}
 
-\mysettikzname{figsketch1d}
-\input{fig_sketch1d}
-
-Image File Name: \texttt{\detokenize{figsketch1d}}\par
-TeX File Name: \texttt{\detokenize{fig_sketch1d}}\par
-
-\mysettikzname{figsketch2d}
-\input{fig_sketch2d}
-
-Image File Name: \texttt{\detokenize{figsketch2d}}\par
-TeX File Name: \texttt{\detokenize{fig_sketch2d}}\par
-
-\mysettikzname{figsketch3d}
-\input{fig_sketch3d}
-
-Image File Name: \texttt{\detokenize{figsketch3d}}\par
-TeX File Name: \texttt{\detokenize{fig_sketch3d}}\par
-
+Image File Name: \texttt{\detokenize{figdiff_closed1}}\par
+TeX File Name: \texttt{\detokenize{fig_diff_closed1}}\par
 
 
 
