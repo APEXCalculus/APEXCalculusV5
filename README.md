@@ -1,4 +1,10 @@
-Source files for the APEX Calculus text, Version 5.0. 
+This repository is not being maintained, with all work occurring on APEX Calculus taking place at https://github.com/APEXCalculus/APEXCalculusPTX.
+
+
+*******************
+* Old README text 
+*******************
+  Source files for the APEX Calculus text, Version 5.0. 
 
 Visit https://github.com/APEXCalculus/APEXCalculusV4 for the static repository of files that matches the print version. It is my intention to no longer update that repository.
 
